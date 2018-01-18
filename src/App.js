@@ -6,6 +6,8 @@ import Publish from './components/Publish'
 import Subscription from './components/Subscription'
 import Message from './components/Message'
 import store from './flux/Store'
+import uuid from 'uuid'
+import _ from 'underscore'
 
 class App extends Component {
 
@@ -16,8 +18,11 @@ class App extends Component {
     }
 
     store.addListener(() => {
-      console.log(store.state)
-      this.setState({messages: store.state.messageArrived})
+      let sortByUNIX = store.state.messageArrived.sort((a, b) => {
+        return b.unix - a.unix
+      })
+
+      this.setState({messages: sortByUNIX})
     })
   }
 
@@ -28,7 +33,7 @@ class App extends Component {
         <div className="row">
           <div className="col-3" style={{marginTop: 20}}>
             <Connection/>
-            <Publish/>
+            {/*<Publish/>*/}
           </div>
           <div className="col-9" style={{marginTop: 20}}>
 
@@ -43,7 +48,7 @@ class App extends Component {
               <div className="form-group">
                 <h3>Messages</h3>
               </div>
-              {this.state.messages.map(object => <Message data={object}/>)}
+              {this.state.messages.map(object => <Message key={uuid()} data={object}/>)}
             </div>
 
           </div>

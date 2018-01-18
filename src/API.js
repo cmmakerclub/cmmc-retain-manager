@@ -38,19 +38,18 @@ const API = {
     }
 
     function onMessageArrived (message) {
-
       let data = {
         destinationName: message.destinationName,
         payloadString: message.payloadString,
         qos: message.qos,
-        timestamp: moment().format('DD/MM/YYYY HH:mm:ss')
+        timestamp: moment().format('DD/MM/YYYY HH:mm:ss'),
+        unix: moment.now()
       }
 
       Dispatcher.dispatch({
         type: TypeActions.MQTT_MESSAGE_ARRIVED,
         data: data
       })
-      // console.log(message.payloadString)
     }
   },
 }
