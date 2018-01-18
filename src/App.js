@@ -5,8 +5,22 @@ import Connection from './components/Connection.js'
 import Publish from './components/Publish'
 import Subscription from './components/Subscription'
 import Message from './components/Message'
+import store from './flux/Store'
 
 class App extends Component {
+
+  constructor (props) {
+    super(props)
+    this.state = {
+      messages: []
+    }
+
+    store.addListener(() => {
+      console.log(store.state)
+      this.setState({messages: store.state.messageArrived})
+    })
+  }
+
   render () {
     return (
       <div className="container">
@@ -29,7 +43,7 @@ class App extends Component {
               <div className="form-group">
                 <h3>Messages</h3>
               </div>
-              <Message/>
+              {this.state.messages.map(object => <Message data={object}/>)}
             </div>
 
           </div>

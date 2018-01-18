@@ -1,6 +1,8 @@
 import Paho from './libs/mqttws31'
 import Dispatcher from './flux/Dispatcher'
 import TypeActions from './flux/Constants'
+let moment = require('moment-timezone')
+moment.locale('th')
 
 const API = {
   MQTT: (host, port, clientId) => {
@@ -36,11 +38,19 @@ const API = {
     }
 
     function onMessageArrived (message) {
+
+      let data = {
+        destinationName: message.destinationName,
+        payloadString: message.payloadString,
+        qos: message.qos,
+        timestamp: moment().format('DD/MM/YYYY HH:mm:ss')
+      }
+
       Dispatcher.dispatch({
         type: TypeActions.MQTT_MESSAGE_ARRIVED,
-        data: message.payloadString
+        data: data
       })
-      console.log(message.payloadString)
+      // console.log(message.payloadString)
     }
   },
 }

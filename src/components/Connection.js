@@ -15,7 +15,6 @@ export default class Connection extends Component {
     }
 
     store.addListener(() => {
-      // console.log(store.state)
       if (store.state.connecting) {
         this.setState({
           classConnecting: 'fa fa-circle text-success float-right'
@@ -26,7 +25,6 @@ export default class Connection extends Component {
 
   handleOnConnect = (e) => {
     e.preventDefault()
-    console.log(this.state)
     Dispatcher.dispatch({
       type: TypeActions.CONNECTING,
       data: this.state

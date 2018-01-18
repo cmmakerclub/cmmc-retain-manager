@@ -8,7 +8,7 @@ class MyStore extends Store {
   constructor (props) {
     super(props)
     this.state = {
-      messageArrived: '',
+      messageArrived: [],
       connecting: false
     }
   }
@@ -25,7 +25,7 @@ class MyStore extends Store {
     }
 
     if (action.type === ActionTypes.MQTT_MESSAGE_ARRIVED) {
-      this.state.messageArrived = JSON.stringify(action.data)
+      this.state.messageArrived = [...this.state.messageArrived, action.data]
       this.__emitChange()
     }
   }
