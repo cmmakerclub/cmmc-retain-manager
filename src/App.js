@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import logo from './logo.svg'
 import Navbar from './components/Navbar'
-import Connection from './components/Connection'
+import Connection from './components/Connection.js'
 import Publish from './components/Publish'
 import Subscription from './components/Subscription'
 import Message from './components/Message'
