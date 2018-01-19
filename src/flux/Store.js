@@ -1,7 +1,7 @@
 import { Store } from 'flux/utils'
 import AppDispatcher from './Dispatcher'
 import ActionTypes from './Constants'
-import API from '../API.js'
+import MQTT from '../MQTT.js'
 
 class MyStore extends Store {
 
@@ -9,18 +9,35 @@ class MyStore extends Store {
     super(props)
     this.state = {
       messageArrived: [],
-      connecting: false
+      connection: false,
+      mqtt: {
+        host: '',
+        port: '',
+        clientId: '',
+        username: '',
+        password: '',
+        topic: ''
+      }
     }
   }
 
   __onDispatch (action) {
+
     if (action.type === ActionTypes.CONNECTING) {
-      API.MQTT(
-        action.data.host,
-        action.data.port,
-        action.data.clientId
-      )
-      this.state.connecting = true
+      this.state.mqtt = {
+        host: action.data.host,
+        port: action.data.port,
+        clientId: action.data.clientId,
+        username: action.data.username,
+        password: action.data.password,
+        topic: action.data.topic
+      }
+      MQTT(this.state.mqtt)
+      this.__emitChange()
+    }
+
+    if (action.type === ActionTypes.MQTT_CONNECTION_SUCCESS) {
+      this.state.connection = true
       this.__emitChange()
     }
 
@@ -28,6 +45,7 @@ class MyStore extends Store {
       this.state.messageArrived = [...this.state.messageArrived, action.data]
       this.__emitChange()
     }
+
   }
 
 }

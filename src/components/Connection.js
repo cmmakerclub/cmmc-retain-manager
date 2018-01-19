@@ -11,16 +11,11 @@ export default class Connection extends Component {
       host: 'mqtt.cmmc.io',
       port: 9001,
       clientId: `CMMC-${parseFloat(Math.random() * 100).toFixed(4)}`,
-      classConnecting: 'fa fa-circle text-danger float-right'
+      username: '',
+      password: '',
+      topic: '#',
+      hiddenConnection: ''
     }
-
-    store.addListener(() => {
-      if (store.state.connecting) {
-        this.setState({
-          classConnecting: 'fa fa-circle text-success float-right'
-        })
-      }
-    })
   }
 
   handleOnConnect = (e) => {
@@ -38,7 +33,7 @@ export default class Connection extends Component {
           <div className="card-body">
             <form>
               <div className="form-group">
-                <h3>Connection <i className={this.state.classConnecting}/></h3>
+                <h3>Connection <i className='fa fa-circle text-danger float-right'/></h3>
               </div>
               <div className="form-group">
                 Host
@@ -52,7 +47,21 @@ export default class Connection extends Component {
               </div>
               <div className="form-group">
                 ClientID
-                <input type="text" className='form-control' defaultValue={this.state.clientId} disabled/>
+                <input type="text" className='form-control' defaultValue={this.state.clientId}/>
+              </div>
+              <div className="form-group">
+                Username
+                <input type="text" className='form-control' onChange={e => this.setState({username: e.target.value})}/>
+              </div>
+              <div className="form-group">
+                Password
+                <input type="password" className='form-control'
+                       onChange={e => this.setState({password: e.target.value})}/>
+              </div>
+              <div className="form-group">
+                Topic
+                <input type="text" className='form-control' defaultValue='#'
+                       onChange={e => this.setState({topic: e.target.value})}/>
               </div>
               <div className="form-group">
                 <button type='button' className='btn btn-success' style={{width: '100%'}}

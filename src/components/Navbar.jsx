@@ -3,7 +3,7 @@ import logo from '../assets/cmmc-logo.png'
 
 export default () => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
-    <a className="navbar-brand" href="#">
+    <a className="navbar-brand" href="/">
       <img src={logo} style={{height: 30}} alt=""/>
     </a>
     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
