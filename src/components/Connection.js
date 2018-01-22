@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Dispatcher from '../flux/Dispatcher'
 import TypeActions from '../flux/Constants'
-import store from '../flux/Store'
 
 export default class Connection extends Component {
 
@@ -10,10 +9,10 @@ export default class Connection extends Component {
     this.state = {
       host: 'mqtt.cmmc.io',
       port: 9001,
-      clientId: `CMMC-${parseFloat(Math.random() * 100).toFixed(4)}`,
+      clientId: 'CMMC_' + Math.random().toString(16).substr(2, 8),
       username: '',
       password: '',
-      topic: '#',
+      topic: 'retain/#',
       hiddenConnection: ''
     }
   }
@@ -60,7 +59,7 @@ export default class Connection extends Component {
               </div>
               <div className="form-group">
                 Topic
-                <input type="text" className='form-control' defaultValue='#'
+                <input type="text" className='form-control' defaultValue={this.state.topic}
                        onChange={e => this.setState({topic: e.target.value})}/>
               </div>
               <div className="form-group">

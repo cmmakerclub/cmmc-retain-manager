@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import logo from './logo.svg'
 import Navbar from './components/Navbar'
 import Connection from './components/Connection.js'
 import Publish from './components/Publish'

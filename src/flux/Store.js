@@ -1,7 +1,7 @@
 import { Store } from 'flux/utils'
 import AppDispatcher from './Dispatcher'
 import ActionTypes from './Constants'
-import MQTT from '../MQTT.js'
+import { MQTTConnect, MQTTClearRetain } from '../MQTT_INIT.js'
 
 class MyStore extends Store {
 
@@ -32,7 +32,8 @@ class MyStore extends Store {
         password: action.data.password,
         topic: action.data.topic
       }
-      MQTT(this.state.mqtt)
+
+      MQTTConnect(this.state.mqtt)
       this.__emitChange()
     }
 
@@ -43,6 +44,11 @@ class MyStore extends Store {
 
     if (action.type === ActionTypes.MQTT_MESSAGE_ARRIVED) {
       this.state.messageArrived = [...this.state.messageArrived, action.data]
+      this.__emitChange()
+    }
+
+    if (action.type === ActionTypes.MQTT_CLEAR_RETAIN) {
+      MQTTClearRetain(this.state.mqtt.topic)
       this.__emitChange()
     }
 
