@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="55a663ba-9a66-4d50-b08b-cf4abe62c9bc" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/components/Message.js" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" afterPath="$PROJECT_DIR$/src/App.js" />
-      <change beforePath="$PROJECT_DIR$/src/MQTT.js" afterPath="$PROJECT_DIR$/src/MQTT_INIT.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/Connection.js" afterPath="$PROJECT_DIR$/src/components/Connection.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/Message.jsx" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/flux/Constants.js" afterPath="$PROJECT_DIR$/src/flux/Constants.js" />
-      <change beforePath="$PROJECT_DIR$/src/flux/Store.js" afterPath="$PROJECT_DIR$/src/flux/Store.js" />
-      <change beforePath="$PROJECT_DIR$/src/libs/mqttws31.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" afterPath="$PROJECT_DIR$/yarn.lock" />
-    </list>
+    <list default="true" id="55a663ba-9a66-4d50-b08b-cf4abe62c9bc" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -54,7 +42,7 @@
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="340">
-              <caret line="20" column="14" lean-forward="true" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+              <caret line="20" column="14" lean-forward="false" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -295,12 +283,12 @@
       <workItem from="1516173114437" duration="1798000" />
       <workItem from="1516248856750" duration="26515000" />
       <workItem from="1516595194473" duration="13000" />
-      <workItem from="1516595223670" duration="4226000" />
+      <workItem from="1516595223670" duration="4268000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32652000" />
+    <option name="totallyTimeSpent" value="32694000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="719" extended-state="6" />
@@ -694,7 +682,7 @@
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
-          <caret line="20" column="14" lean-forward="true" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+          <caret line="20" column="14" lean-forward="false" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
           <folding />
         </state>
       </provider>
